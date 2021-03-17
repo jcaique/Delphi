@@ -5,9 +5,9 @@ interface
 uses
 Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
-
 type 
-  TContagemCedulas = class
+ TContagemCedulas = class // TContagemCedulas = class(TObject)
+  
   protected 
     FValorContagem : integer;
     FQtdNotas200 : integer;
@@ -23,15 +23,13 @@ type
    
   public 
     function ObterDistribuicao : TStringList;
-    property ValorContagem : integer read FValorContagem
-                                     write DefineValorContagem;
+    property ValorContagem : integer read FValorContagem write DefineValorContagem;
+    
 end;
   
 implementation
 
 uses System.Math
-
-{TContagemCedulas}
 
 procedure TContagemCedulas.Distribuicao
 
@@ -82,13 +80,13 @@ begin
 procedure TContagemCedulas.DefineValorContagem(valor: integer);
 	begin
 		if valor < 0 then
-			FValorContagem := 0
+			FValorContagem := 0;
 		else
-			begin
-				FValorContagem := valor;
-				Distribuicoa();
-			end;
+		begin
+			FValorContagem := valor;
+			Distribuicoa();
 		end;
+	end;
 		
 function TContagemCedulas.ObterDistribuicao: TStringList;
 	var Lista : TStringList;
@@ -104,5 +102,5 @@ function TContagemCedulas.ObterDistribuicao: TStringList;
 			Lista.Add(IntToStr(FQtdNotas2) + ' nota(s) de 2');
 			
 			result := Lista;
-		end:
+		end;
 end.
