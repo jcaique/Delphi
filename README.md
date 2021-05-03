@@ -1,15 +1,19 @@
-ESTUDANDO DELPHI!
+🧠 Estudando Delphi! 💪🧠
 
-A IDEIA POR TRÁS DESTE REPOSITÓRIO
-É COLOCAR PEQUENOS EXEMPLOS DE CÓDIGOS
-PARA CONSULTA CASO SURJA ALGUMA DÚVIDA NA
-HORA DE CODIFICAR ALGUMA COISA. 
+A ideia por trás deste repositório
+é colocar pequenos exemplos de cógidos
+para consultar, caso surja alguma dúvida
+quado estiver programando com esta linguagem.
 
 
 
-STUDYNG DELPHI!
+🧠 Studying Delphi! 💪
 
-THE IDEIA BEHIND THI  REPOSITORIE
-IS PUT SMALL SAMPLES OF CODES TO 
-CONSULT IN A CASE OF DOUBT WHEN 
-I WORKING WITH IT. 
+The idea behind this respository
+is to put small of codes here, to 
+consult in a case of doubts when  
+working with it.
+
+
+
+👉 Sugestões de melhorias/Improve suggest, wpp: bit.ly/3v4nGpK
