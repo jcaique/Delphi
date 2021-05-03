@@ -21,12 +21,12 @@ type
     FQtdNOtas2: integer;
 
     {
-      TODA 'PROCEDURE' … COMO UMA FUN«√O VOID - N√O RETORNA VALORES
+      TODA 'PROCEDURE' √â COMO UMA FUN√á√ÉO VOID - N√ÉO RETORNA VALORES
       PARA RETORNAR VALORES, UTILIZAMOS UMA 'FUNCTION', ONDE PARA
-      RETORNAR DENTRO DO C”DIGO, UTILIZAMOS A PALAVRA 'RESULT'.
+      RETORNAR DENTRO DO C√ìDIGO, UTILIZAMOS A PALAVRA 'RESULT'.
 
-      PARA DECLARAR UMA FUNCTION: function nome : tipo_retorno;
-      PARA DECLARAR UMA PROCEDURE: procedure nome;
+      PARA DECLARAR UMA FUNCTION: function nome(arg1,arg2 : tipo_arg1_2, arg3 : tipo_arg3 ) : tipo_retorno;
+      PARA DECLARAR UMA PROCEDURE: procedure nome(arg1,arg2 : tipo_arg1_2, arg3 : tipo_arg3 );
     }
     procedure Distribuicao;
     procedure DefineValorContagem(valor: integer);
