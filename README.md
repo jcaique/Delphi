@@ -3,7 +3,7 @@
 A ideia por trás deste repositório
 é colocar pequenos exemplos de cógidos
 para consultar, caso surja alguma dúvida
-quado estiver programando com esta linguagem.
+quando estiver programando com esta linguagem.
 
 
 
