@@ -7,13 +7,13 @@ interface
 type
   TRetangulo = class(Tobject)
   private
-    TAltura: double;
-    TBase: double;
+    FAltura: double;
+    FBase: double;
 
   public
     // entendendo as properties: property nome : tipo read atributo1 write atributo1
-    property PAltura: double read TAltura write TAltura;
-    property PBase: double read TBase write TBase;
+    property PAltura: double read FAltura write FAltura;
+    property PBase: double read FBase write FBase;
 
     // utilizando métodos
     function getAltura(): double;
@@ -28,32 +28,32 @@ implementation
 
 procedure TRetangulo.setAltura(altura: double);
 begin
-  TAltura := altura;
+  FAltura := altura;
 end;
 
 procedure TRetangulo.setBase(base: double);
 begin
-  TBase := base;
+  FBase := base;
 end;
 
 function TRetangulo.getAltura(): double;
 begin
-  Result := TAltura;
+  Result := FAltura;
 end;
 
 function TRetangulo.getBase(): double;
 begin
-  Result := TBase;
+  Result := FBase;
 end;
 
 function TRetangulo.calcArea(): double;
 begin
-  Result := (TBase * TAltura);
+  Result := (FBase * FAltura);
 end;
 
 function TRetangulo.calcPerimetro(): double;
 begin
-  Result := ((TBase + TAltura) * 2);
+  Result := ((FBase + FAltura) * 2);
 end;
 
 end.
