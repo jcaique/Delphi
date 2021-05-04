@@ -1,4 +1,4 @@
-unit oopClasseContagemCedulas;
+unit ClasseContagemCedulas;
 
 interface
 
