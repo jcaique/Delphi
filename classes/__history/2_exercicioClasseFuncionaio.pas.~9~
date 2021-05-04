@@ -18,8 +18,7 @@ type
     procedure setIdade(idade: Integer);
     procedure setSalario(salario: Double);
 
-    // implementar properties
-    property PNome: String read FNome write FNome;
+    //implementar properties
   end;
 
 implementation
@@ -29,29 +28,18 @@ begin
   Result := FNome;
 end;
 
-function TFuncionario.getIdade(): Integer;
+function TFuncionario.getIdade():Integer;
 begin
   Result := FIdade;
 end;
 
-function TFuncionario.getSalario(): Double;
+function TFuncionario.getSalario():Double;
 begin
   Result := FSalario;
 end;
 
-procedure setNome(nome: String);
+procedure setNome(nome : String);
 begin
-  FNome := nome;
+  F
 end;
-
-procedure setIdade(idade: Integer);
-begin
-  FIdade := idade;
-end;
-
-procedure setSalario(salario: Double);
-begin
-  FSalario := salario;
-end;
-
 end.

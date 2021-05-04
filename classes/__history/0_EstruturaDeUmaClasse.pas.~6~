@@ -29,17 +29,9 @@ implementation // Implementação dos métodos da classe
 
 uses Sys.Utils;
 
-initialization
-
-// opcional: o que for delcarado aqui, será executado no início do programa principal
-
-finalization
-
-// opcional: usado para liberar espaço do que foi delcarado em intitialization
-
 end.
 
-{
-  fonte: https://www.devmedia.com.br/criando-uma-classe-delphi/23517
-  http://docwiki.embarcadero.com/RADStudio/Sydney/en/Programs_and_Units_(Delphi)
-}
+  {
+    fonte: https://www.devmedia.com.br/criando-uma-classe-delphi/23517
+    http://docwiki.embarcadero.com/RADStudio/Sydney/en/Programs_and_Units_(Delphi)
+  }

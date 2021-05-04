@@ -30,12 +30,9 @@ implementation // Implementação dos métodos da classe
 uses Sys.Utils;
 
 initialization
+//opcional: o que for delcarado aqui, será executado no início do programa principal
 
-// opcional: o que for delcarado aqui, será executado no início do programa principal
-
-finalization
-
-// opcional: usado para liberar espaço do que foi delcarado em intitialization
+finalization //opcional
 
 end.
 
