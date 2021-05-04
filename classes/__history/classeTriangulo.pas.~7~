@@ -1,0 +1,27 @@
+unit classeTriangulo;
+
+{Refazendo exercícios}
+
+interface
+
+type
+  TTriangulo = class(Tobject)
+  private
+    TAltura: double;
+    TBase: double;
+
+  public
+    // entendendo as properties: property nome : tipo read atributo1 write atributo1
+    property PAltura: double read TAltura write TAltura;
+    property PBase: double read TBase write TBase;
+
+    //utilizando métodos
+    function getAltura(): double;
+    function getBase(): double;
+    procedure setAltura(altura: double);
+    procedure setBase(base: double);
+  end;
+
+implementation
+
+end.
