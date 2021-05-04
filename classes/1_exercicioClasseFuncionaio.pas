@@ -41,17 +41,17 @@ begin
   Result := FSalario;
 end;
 
-procedure setNome(nome: String);
+procedure TFuncionario.setNome(nome: String);
 begin
   FNome := nome;
 end;
 
-procedure setIdade(idade: Integer);
+procedure TFuncionario.setIdade(idade: Integer);
 begin
   FIdade := idade;
 end;
 
-procedure setSalario(salario: Double);
+procedure TFuncionario.setSalario(salario: Double);
 begin
   FSalario := salario;
 end;
