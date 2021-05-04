@@ -1,6 +1,6 @@
 unit classeRetangulo;
 
-{ Refazendo exercícios }
+{ Refazendo exercÃ­cios }
 
 interface
 
@@ -15,7 +15,7 @@ type
     property PAltura: double read TAltura write TAltura;
     property PBase: double read TBase write TBase;
 
-    // utilizando métodos
+    // utilizando mÃ©todos
     function getAltura(): double;
     function getBase(): double;
     function calcArea(): double;
