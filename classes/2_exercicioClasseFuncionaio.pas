@@ -18,8 +18,10 @@ type
     procedure setIdade(idade: Integer);
     procedure setSalario(salario: Double);
 
-    // implementar properties
+    // implementar properties (pegar mais o macete de properties ainda)c
     property PNome: String read FNome write FNome;
+    property PIdade: Integer read FIdade write FIdade;
+    property PSalario: Double read FSalario write FSalario;
   end;
 
 implementation
