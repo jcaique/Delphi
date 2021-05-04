@@ -48,12 +48,12 @@ end;
 
 function TRetangulo.calcArea(): double;
 begin
-  Result := (base * altura);
+  Result := (TBase * TAltura);
 end;
 
 function TRetangulo.calcPerimetro(): double;
 begin
-  Result := ((base + altura) * 2);
+  Result := ((TBase + TAltura) * 2);
 end;
 
 end.
