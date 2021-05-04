@@ -5,9 +5,9 @@ interface
 type TRelogio = class(Tobject)
 
 private
-  RHoras : Integer;
-  RMinutos : Integer;
-  RSegundos : Integer;
+  FHoras : Integer;
+  FMinutos : Integer;
+  FSegundos : Integer;
 
 public
   property PHoras : Integer read RHoras write RHoras;
