@@ -21,13 +21,14 @@ type
     FQtdNOtas2: integer;
 
     {
-      TODA 'PROCEDURE' É COMO UMA FUNÇÃO VOID - NÃO RETORNA VALORES
+      TODA 'PROCEDURE' É COMO UMA FUNÇÃO VOID - NÃO RETORNA VALORES,
       PARA RETORNAR VALORES, UTILIZAMOS UMA 'FUNCTION', ONDE PARA
       RETORNAR DENTRO DO CÓDIGO, UTILIZAMOS A PALAVRA 'RESULT'.
 
       PARA DECLARAR UMA FUNCTION: function nome(arg1,arg2 : tipo_arg1_2, arg3 : tipo_arg3 ) : tipo_retorno;
       PARA DECLARAR UMA PROCEDURE: procedure nome(arg1,arg2 : tipo_arg1_2, arg3 : tipo_arg3 );
     }
+    
     procedure Distribuicao;
     procedure DefineValorContagem(valor: integer);
 
