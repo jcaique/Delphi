@@ -1,5 +1,8 @@
 program ExampleOfList;
 
+uses 
+System.Generics.Collections.TList;
+
 var
   List: TList<Integer>; //Declarando uma lista de inteiros
   FoundIndex: Integer; //Uma variável inteira
