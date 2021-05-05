@@ -29,7 +29,7 @@ type
 
 implementation
 
-constructor Create(nome : string, idade: integer, salario: double);
+constructor TFuncionario.Create(nome : string, idade: integer, salario: double);
 begin
   FNome := nome;
   FIdade := idade;
