@@ -11,6 +11,9 @@ type
     FSalario: Double;
 
   public
+  
+    constructor Create(nome : string, idade: integer, salario: double);
+  
     function getNome: String;
     function getIdade: Integer;
     function getSalario: Double;
@@ -19,12 +22,19 @@ type
     procedure setSalario(salario: Double);
 
     // implementar properties (pegar mais o macete de properties ainda)c
-    property PNome: String read FNome write FNome;
-    property PIdade: Integer read FIdade write FIdade;
-    property PSalario: Double read FSalario write FSalario;
+    property Nome: String read FNome write FNome;
+    property Idade: Integer read FIdade write FIdade;
+    property Salario: Double read FSalario write FSalario;
   end;
 
 implementation
+
+constructor Create(nome : string, idade: integer, salario: double);
+begin
+  FNome := nome;
+  FIdade := idade;
+  FSalario := salario;
+end;
 
 function TFuncionario.getNome(): String;
 begin
