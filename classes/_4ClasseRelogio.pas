@@ -1,5 +1,7 @@
 unit Relogio;
 
+{Simples exemplo utilizando properties em uma classe}
+
 interface
 
 type TRelogio = class(Tobject)
@@ -10,9 +12,9 @@ private
   FSegundos : Integer;
 
 public
-  property PHoras : Integer read RHoras write RHoras;
-  property PMinutos : Integer read RMinutos write RMinutos;
-  property PSegundos : Integer read RSegundos write RSegundos;
+  property Horas : Integer read FHoras write FHoras;
+  property Minutos : Integer read FMinutos write FMinutos;
+  property Segundos : Integer read FSegundos write FSegundos;
 
 end;
 
