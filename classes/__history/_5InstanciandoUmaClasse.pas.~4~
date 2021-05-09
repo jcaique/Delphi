@@ -7,6 +7,7 @@ var
   salario: double = 20000;
 
 begin
+
   {
     Instanciando a classe a partir do método construtor Create.
     Com isto, temos um objeto da classe Funcionario criado.

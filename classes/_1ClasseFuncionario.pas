@@ -11,6 +11,9 @@ type
     FSalario: Double;
 
   public
+
+    constructor Create(nome: string; idade: Integer; salario: Double);
+
     function getNome: String;
     function getIdade: Integer;
     function getSalario: Double;
@@ -18,13 +21,20 @@ type
     procedure setIdade(idade: Integer);
     procedure setSalario(salario: Double);
 
-    // implementar properties (pegar mais o macete de properties ainda)c
-    property PNome: String read FNome write FNome;
-    property PIdade: Integer read FIdade write FIdade;
-    property PSalario: Double read FSalario write FSalario;
+    // implementar properties (pegar mais o macete de properties ainda)
+    property nome: String read FNome write FNome;
+    property idade: Integer read FIdade write FIdade;
+    property salario: Double read FSalario write FSalario;
   end;
 
 implementation
+
+constructor TFuncionario.Create(nome: string; idade: Integer; salario: Double);
+begin
+  FNome := nome;
+  FIdade := idade;
+  FSalario := salario;
+end;
 
 function TFuncionario.getNome(): String;
 begin

@@ -1,4 +1,4 @@
-﻿unit ClasseContagemCedulas;
+unit ClasseContagemCedulas;
 
 interface
 
@@ -28,7 +28,7 @@ type
       PARA DECLARAR UMA FUNCTION: function nome(arg1,arg2 : tipo_arg1_2, arg3 : tipo_arg3 ) : tipo_retorno;
       PARA DECLARAR UMA PROCEDURE: procedure nome(arg1,arg2 : tipo_arg1_2, arg3 : tipo_arg3 );
     }
-
+    
     procedure Distribuicao;
     procedure DefineValorContagem(valor: integer);
 
@@ -91,34 +91,33 @@ begin
       end;
     end;
   end;
-end;
 
-procedure TContagemCedulas.DefineValorContagem(valor: integer);
-begin
-  if valor < 0 then
-    FValorContagem := 0
-  else
+  procedure TContagemCedulas.DefineValorContagem(valor: integer);
   begin
-    FValorContagem := valor;
-    Distribuicoa();
+    if valor < 0 then
+      FValorContagem := 0
+    else
+    begin
+      FValorContagem := valor;
+      Distribuicoa();
+    end;
   end;
-end;
 
-function TContagemCedulas.ObterDistribuicao: TStringList;
-var
-  Lista: TStringList;
-begin
-  List := TStringList.Create; // criando uma lista
+  function TContagemCedulas.ObterDistribuicao: TStringList;
+  var
+    Lista: TStringList;
+  begin
+    List := TStringList.Create; // criando uma lista
 
-  Lista.Add(IntToStr(FQtdNotas200) + ' nota(s) de 200');
-  Lista.Add(IntToStr(FQtdNotas100) + ' nota(s) de 100');
-  Lista.Add(IntToStr(FQtdNotas50) + ' nota(s) de 50');
-  Lista.Add(IntToStr(FQtdNotas20) + ' nota(s) de 20');
-  Lista.Add(IntToStr(FQtdNotas10) + ' nota(s) de 10');
-  Lista.Add(IntToStr(FQtdNotas5) + ' nota(s) de 5');
-  Lista.Add(IntToStr(FQtdNOtas2) + ' nota(s) de 2');
+    Lista.Add(IntToStr(FQtdNotas200) + ' nota(s) de 200');
+    Lista.Add(IntToStr(FQtdNotas100) + ' nota(s) de 100');
+    Lista.Add(IntToStr(FQtdNotas50) + ' nota(s) de 50');
+    Lista.Add(IntToStr(FQtdNotas20) + ' nota(s) de 20');
+    Lista.Add(IntToStr(FQtdNotas10) + ' nota(s) de 10');
+    Lista.Add(IntToStr(FQtdNotas5) + ' nota(s) de 5');
+    Lista.Add(IntToStr(FQtdNOtas2) + ' nota(s) de 2');
 
-  result := Lista;
-end;
+    result := Lista;
+  end;
 
 end.
