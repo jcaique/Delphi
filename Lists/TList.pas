@@ -1,7 +1,7 @@
 program ExampleOfList;
 
 uses 
-System.Generics.Collections.TList;
+System.Generics.Collections;
 
 var
   List: TList<Integer>; //Declarando uma lista de inteiros
