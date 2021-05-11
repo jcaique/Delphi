@@ -1,7 +1,7 @@
 program swap;
 
 var
-a,b : double;{na prova usei integer, aqui ele buga. desta forma deu bom}
+a,b : double;
 begin
 a:=3;
 b:=5;
