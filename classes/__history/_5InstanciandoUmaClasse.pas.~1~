@@ -1,7 +1,5 @@
 ﻿program InstanciandoUmaClasse;
 
-uses classeFuncionario;
-
 var
   Functionario: TFuncionario; // DECLARANDO UMA VARIÁVEL DO TIPO DA CLASSE
   nome: String = 'Fulano de Tal';
