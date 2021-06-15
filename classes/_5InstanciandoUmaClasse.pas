@@ -15,4 +15,6 @@ begin
   }
   Funcionario := TFuncionario.Create(nome, idade, salario);
 
+//O ideal é deixar as instancias dentro de um try finally, ou simplesmente
+//liberar a classe instanciada da memória: Funcionario.Free; 
 end.
