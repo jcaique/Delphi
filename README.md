@@ -1,4 +1,4 @@
-# 🧠**Delphi** _(trainee)_🤖
+# 🧠**Delphi** *(trainee)*🤖
 ---
 A ideia é colocar pequenos exemplos de cógidos
 para consultar, caso surja alguma dúvida
@@ -14,5 +14,4 @@ e vá inserindo os componentes presentes no .pas
 mesmo (Recomendo).
 ---
 ## Contato 🗣 
-[Link][1]
-👉 wpp: [1] https://bit.ly/3gVwzhP
+👉 wpp:[Link][https://bit.ly/3gVwzhP]
