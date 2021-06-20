@@ -1,0 +1,14 @@
+*.dpr
+*.dproj
+*.dfm
+*.identcache
+*.local
+*.dproj.local
+*.res
+*.ini
+*/temp
+**/Win32
+**/__history
+**/__recovery
+@DelphiProgramming4Beginners_PTBR_1.1
+@YouTubeCurso

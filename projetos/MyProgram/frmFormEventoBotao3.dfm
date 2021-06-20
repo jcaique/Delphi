@@ -1,0 +1,83 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  ActiveControl = btnVerde
+  Caption = 'Sem'#225'foro'
+  ClientHeight = 108
+  ClientWidth = 267
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lblGreen: TLabel
+    Left = 180
+    Top = 17
+    Width = 71
+    Height = 33
+    Caption = 'Green'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clLime
+    Font.Height = -27
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblRed: TLabel
+    Left = 32
+    Top = 17
+    Width = 46
+    Height = 33
+    Caption = 'Red'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -27
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblYellow: TLabel
+    Left = 97
+    Top = 17
+    Width = 77
+    Height = 33
+    Caption = 'Yellow'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clYellow
+    Font.Height = -27
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object btnVerde: TButton
+    Left = 16
+    Top = 56
+    Width = 75
+    Height = 25
+    Caption = 'Green'
+    TabOrder = 0
+    OnClick = btnVerdeClick
+  end
+  object btnVermellho: TButton
+    Left = 97
+    Top = 56
+    Width = 75
+    Height = 25
+    Caption = 'Red'
+    TabOrder = 1
+    OnClick = btnVermellhoClick
+  end
+  object btnYellow: TButton
+    Left = 178
+    Top = 56
+    Width = 75
+    Height = 25
+    Caption = 'Yellow'
+    TabOrder = 2
+    OnClick = btnYellowClick
+  end
+end
