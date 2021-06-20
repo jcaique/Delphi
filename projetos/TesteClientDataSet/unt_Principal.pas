@@ -72,3 +72,8 @@ begin
 end;
 
 end.
+
+//TESTANDO O COMPONENTE TClientDataSet, utilizado para trabalhar com dados em memória
+//É um DataSet normal, porém não trabalha com dados direto do banco.
+//É preciso criar seus campos, criar o dataset para fazer uso. 
+//Mesma forma de utilizar o ADOQuery, nomeds_Pais por exemplo, pois o ADOQuery é uma herança do DataSet (posso estar errado)
