@@ -1,3 +1,10 @@
+
+*.1p1
+*.dcp
+*.dcu
+*.exe
+*.vlb
+*.tvsconfig
 *.dpr
 *.dproj
 *.dfm
@@ -6,8 +13,9 @@
 *.dproj.local
 *.res
 *.ini
-*/temp
+**/temp
+**/debug
 **/Win32
 **/__history
 **/__recovery
-@DelphiProgramming4Beginners_PTBR_1.1
+@DelphiProgramming4Beginners_PTBR_1.1.pdf
