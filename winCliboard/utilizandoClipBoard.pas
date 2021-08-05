@@ -7,11 +7,13 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Clipbrd;
 
 type
-  TForm1 = class(TForm)
+  TformTeste = class(TForm)
     edTeste: TEdit;
+    lbTeste: TLabel;
     procedure edTesteKeyPress(Sender: TObject; var Key: Char);
     procedure edTesteMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure FormShow(Sender: TObject);
+    procedure edTesteKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -19,13 +21,26 @@ type
   end;
 
 var
-  Form1: TForm1;
+  formTeste: TformTeste;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm1.edTesteKeyPress(Sender: TObject; var Key: Char);
+procedure TformTeste.edTesteKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+  var
+    Clip: TClipboard;
+begin
+  try
+    Clip := TClipboard.Create();
+    if Key = VK_APPS then
+      Clip.Clear;
+  finally
+    FreeAndNil(Clip);
+  end;
+end;
+
+procedure TformTeste.edTesteKeyPress(Sender: TObject; var Key: Char);
 begin
   if not (Key in ['0'..'9', #8, #13, #27, #127]) then
   begin
@@ -42,12 +57,13 @@ begin
   }
 end;
 
-procedure TForm1.edTesteMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+procedure TformTeste.edTesteMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
   var
     Clipboard: TClipboard;
 begin
   try
     Clipboard := TClipboard.Create();
+    lbTeste.Caption := Clipboard.AsText;
     Clipboard.Clear;
   finally
     FreeAndNil(Clipboard);
@@ -56,10 +72,12 @@ begin
     A partir da api Vcl.Clipbrd, foi criada uma variável
     do tipo TClipboard. Ao ser clicado no edTeste (MouseDown)
     será limpado o que estiver por lá.
+    Para melhor visualização, comente a linha Clipboard.Clear.
+    O lbTeste receberá o caption que estava no Clipboard.
   }
 end;
 
-procedure TForm1.FormShow(Sender: TObject);
+procedure TformTeste.FormShow(Sender: TObject);
 begin
   edTeste.SetFocus;
 end;
