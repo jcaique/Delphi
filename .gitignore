@@ -1,4 +1,4 @@
-
+*debug1
 *.1p1
 *.dcp
 *.dcu
@@ -18,4 +18,6 @@
 **/Win32
 **/__history
 **/__recovery
+**/.svn
+**/branches
 @DelphiProgramming4Beginners_PTBR_1.1.pdf
