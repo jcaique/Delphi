@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1055E9D4-7EA8-4E25-8AC4-4A98A03E2EE3}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TesteDll\TesteDll.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="prjUsoImplicitoDll\UsaImplicitoDll.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="prjUsoExplicitoDll\UsaExplicitoDll.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TesteDll">
+        <MSBuild Projects="TesteDll\TesteDll.dproj"/>
+    </Target>
+    <Target Name="TesteDll:Clean">
+        <MSBuild Projects="TesteDll\TesteDll.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TesteDll:Make">
+        <MSBuild Projects="TesteDll\TesteDll.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UsaImplicitoDll">
+        <MSBuild Projects="prjUsoImplicitoDll\UsaImplicitoDll.dproj"/>
+    </Target>
+    <Target Name="UsaImplicitoDll:Clean">
+        <MSBuild Projects="prjUsoImplicitoDll\UsaImplicitoDll.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UsaImplicitoDll:Make">
+        <MSBuild Projects="prjUsoImplicitoDll\UsaImplicitoDll.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UsaExplicitoDll">
+        <MSBuild Projects="prjUsoExplicitoDll\UsaExplicitoDll.dproj"/>
+    </Target>
+    <Target Name="UsaExplicitoDll:Clean">
+        <MSBuild Projects="prjUsoExplicitoDll\UsaExplicitoDll.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UsaExplicitoDll:Make">
+        <MSBuild Projects="prjUsoExplicitoDll\UsaExplicitoDll.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TesteDll;UsaImplicitoDll;UsaExplicitoDll"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TesteDll:Clean;UsaImplicitoDll:Clean;UsaExplicitoDll:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TesteDll:Make;UsaImplicitoDll:Make;UsaExplicitoDll:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
