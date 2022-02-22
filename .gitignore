@@ -13,6 +13,7 @@
 *.dproj.local
 *.res
 *.ini
+*.pdf
 **/temp
 **/debug
 **/Win32
