@@ -1,2 +1,2 @@
 # **Delphi**
-Pequenos exemplos escritos em Object Pacal na IDE Delphi.
+Pequenos exemplos escritos em Object Pascal na IDE Delphi.
