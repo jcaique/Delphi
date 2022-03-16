@@ -1,0 +1,55 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'IniFile'
+  ClientHeight = 591
+  ClientWidth = 396
+  Fill.Color = claBlack
+  Fill.Kind = Solid
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 3
+  object edName: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    ControlType = Platform
+    TextSettings.FontColor = claSeashell
+    Position.X = 69.000000000000000000
+    Position.Y = 53.000000000000000000
+    Size.Width = 257.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Your Name'
+    StyledSettings = [Family, Size, Style]
+    Caret.Color = claRed
+  end
+  object edEmail: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    ControlType = Platform
+    KeyboardType = EmailAddress
+    TextSettings.FontColor = claSeashell
+    Position.X = 69.000000000000000000
+    Position.Y = 126.000000000000000000
+    Size.Width = 257.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'E-Mail'
+    StyledSettings = [Family, Size, Style]
+    Caret.Color = claRed
+  end
+  object btSave: TButton
+    ControlType = Platform
+    Position.X = 142.000000000000000000
+    Position.Y = 184.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Save'
+    TintColor = claSpringgreen
+    OnClick = btSaveClick
+  end
+end
