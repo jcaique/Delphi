@@ -1,0 +1,67 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 393
+  Fill.Color = claTeal
+  Fill.Kind = Solid
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 3
+  object edPhoneNumber: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    StyleLookup = 'editstyle'
+    TabOrder = 0
+    ControlType = Platform
+    KeyboardType = PhonePad
+    Position.X = 52.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 289.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Number to call'
+    object FloatKeyAnimation1: TFloatKeyAnimation
+      Duration = 0.200000002980232200
+      Keys = <>
+      PropertyName = 'Opacity'
+      StartFromCurrent = False
+    end
+  end
+  object btCall: TButton
+    Action = PhoneCallAction
+    ControlType = Platform
+    Enabled = True
+    ImageIndex = -1
+    Position.X = 128.000000000000000000
+    Position.Y = 88.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Call'
+    TintColor = claYellowgreen
+  end
+  object Actions: TActionList
+    Left = 32
+    Top = 144
+    object PhoneCallAction: TPhoneCallAction
+      Category = 'Phone Dialer'
+    end
+  end
+  object Bindings: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 28
+    Top = 197
+    object LinkControlToPropertyTelephoneNumber: TLinkControlToProperty
+      Category = 'Quick Bindings'
+      Control = edPhoneNumber
+      Track = False
+      Component = PhoneCallAction
+      ComponentProperty = 'TelephoneNumber'
+    end
+  end
+end

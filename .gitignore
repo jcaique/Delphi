@@ -13,6 +13,9 @@
 *.dproj.local
 *.res
 *.ini
+*.groupproj
+**/Android64
+**/Android32
 **/temp
 **/debug
 **/Win32
