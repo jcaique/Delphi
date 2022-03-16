@@ -1,4 +1,4 @@
-unit Unit1;
+unit UMain;
 
 interface
 
@@ -8,11 +8,11 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
 
 type
-  TForm1 = class(TForm)
-    painel1: TPanel;
-    painel2: TPanel;
-    Button1: TButton;
-    procedure Button1Click(Sender: TObject);
+  TfrmMain = class(TForm)
+    pnColor1: TPanel;
+    pnColor2: TPanel;
+    btGenerateColor: TButton;
+    procedure btGenerateColorClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,7 +30,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  frmMain: TfrmMain;
 
 implementation
 
@@ -51,22 +51,21 @@ end;
 
 {$R *.dfm}
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TfrmMain.btGenerateColorClick(Sender: TObject);
 var
 
   rnd: Integer;
 begin
   rnd := 255;
 
-  painel1.Color := rgb(random(rnd), random(rnd), random(rnd));
-  painel2.Color := rgb(random(rnd), random(rnd), random(rnd));
+  pnColor1.Color := rgb(random(rnd), random(rnd), random(rnd));
+  pnColor2.Color := rgb(random(rnd), random(rnd), random(rnd));
 
-  painel1.Caption := concat('RGB(', IntToStr(rnd), ',', IntToStr(rnd), ',',
+  pnColor1.Caption := concat('RGB(', IntToStr(rnd), ',', IntToStr(rnd), ',',
     IntToStr(rnd), ')');
 
-  painel2.Caption := concat('RGB(', IntToStr(rnd), ',', IntToStr(rnd), ',',
+  pnColor2.Caption := concat('RGB(', IntToStr(rnd), ',', IntToStr(rnd), ',',
     IntToStr(rnd), ')')
-
 end;
 
 end.

@@ -5,8 +5,6 @@
 *.exe
 *.vlb
 *.tvsconfig
-*.dpr
-*.dproj
 *.dfm
 *.identcache
 *.local
@@ -23,4 +21,3 @@
 **/__recovery
 **/.svn
 **/branches
-@DelphiProgramming4Beginners_PTBR_1.1.pdf
