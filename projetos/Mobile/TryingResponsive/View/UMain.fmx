@@ -1,0 +1,84 @@
+object MainScreen: TMainScreen
+  Left = 0
+  Top = 0
+  Caption = 'Trying Responsive'
+  ClientHeight = 480
+  ClientWidth = 342
+  SystemStatusBar.Visibility = Invisible
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 3
+  object barTop: TToolBar
+    Size.Width = 342.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    TintColor = claTomato
+    object btTakePhoto: TButton
+      Align = Left
+      ControlType = Platform
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'cameratoolbutton'
+      TabOrder = 0
+      Text = 'btTakePhoto'
+      TintColor = claYellowgreen
+    end
+    object btSearchPhoto: TButton
+      Align = Left
+      ControlType = Platform
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 63.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'searchtoolbutton'
+      TabOrder = 1
+      Text = 'btSearchPhoto'
+      TintColor = claYellowgreen
+    end
+  end
+  object barBottom: TToolBar
+    Align = Bottom
+    Position.Y = 432.000000000000000000
+    Size.Width = 342.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    TintColor = claSpringgreen
+    object btExitApp: TButton
+      Align = Right
+      ControlType = Platform
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 289.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'escapetoolbutton'
+      TabOrder = 0
+    end
+  end
+  object layoutComponent: TLayout
+    Align = Client
+    Size.Width = 342.000000000000000000
+    Size.Height = 384.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+  end
+end
