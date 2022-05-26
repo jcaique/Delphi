@@ -11,6 +11,8 @@
 *.res
 *.ini
 *.groupproj
+*.deployproj
+*.template.xml
 **/Android64
 **/Android32
 **/temp
@@ -21,3 +23,4 @@
 **/__recovery
 **/.svn
 **/branches
+**/AppDelivery
