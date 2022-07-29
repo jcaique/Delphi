@@ -1,0 +1,114 @@
+object MainScreen: TMainScreen
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 619
+  ClientWidth = 367
+  Fill.Color = claTeal
+  Fill.Kind = Solid
+  SystemStatusBar.BackgroundColor = claSpringgreen
+  StyleLookup = 'panelstyle'
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  FullScreen = True
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object GradientAnimation1: TGradientAnimation
+    Duration = 0.200000002980232200
+    Interpolation = Exponential
+    PropertyName = 'Fill.Gradient'
+    StartValue.Points = <
+      item
+        Color = claBlack
+        Offset = 0.000000000000000000
+      end
+      item
+        Color = claWhite
+        Offset = 1.000000000000000000
+      end>
+    StopValue.Points = <
+      item
+        Color = claBlack
+        Offset = 0.000000000000000000
+      end
+      item
+        Color = claWhite
+        Offset = 1.000000000000000000
+      end>
+  end
+  object Layout: TLayout
+    Align = Client
+    Size.Width = 367.000000000000000000
+    Size.Height = 523.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object edNotificationTitle: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 1
+      ControlType = Platform
+      KeyboardType = Alphabet
+      ReturnKeyType = Next
+      Position.X = 33.000000000000000000
+      Position.Y = 53.000000000000000000
+      Size.Width = 300.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'Title'
+      KillFocusByReturn = True
+    end
+    object edNotificationBody: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 0
+      ControlType = Platform
+      KeyboardType = Alphabet
+      ReturnKeyType = Next
+      Position.X = 33.000000000000000000
+      Position.Y = 115.000000000000000000
+      Size.Width = 300.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'Body'
+      KillFocusByReturn = True
+    end
+    object lbTime: TLabel
+      Align = Center
+      TextSettings.HorzAlign = Center
+      TabOrder = 2
+    end
+  end
+  object ToolBarTop: TToolBar
+    ControlType = Platform
+    Size.Width = 367.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+  end
+  object ToolBarBottom: TToolBar
+    Align = MostBottom
+    ControlType = Platform
+    Position.Y = 571.000000000000000000
+    Size.Width = 367.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btNotificate: TButton
+      Align = Center
+      ControlType = Platform
+      StyledSettings = [Family, Size, Style]
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Notificate'
+      TextSettings.FontColor = claOldlace
+      TintColor = claBlack
+      OnClick = btNotificateClick
+    end
+  end
+end
