@@ -1,7 +1,5 @@
 program text4DStr;
 
-{$R *.dres}
-
 uses
   System.StartUpCopy,
   FMX.Forms,
