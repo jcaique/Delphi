@@ -8,7 +8,7 @@ uses
   Datasnap.Provider, FMX.StdCtrls, IPPeerClient, IPPeerServer,
   System.Tether.Manager, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
   FMX.Controls.Presentation, System.ImageList, FMX.ImgList, FMX.Clipboard.Win,
-  FMX.Clipboard, System.Rtti, FMX.Platform, FMX.Edit, FMX.ExtCtrls;
+  FMX.Clipboard, System.Rtti, FMX.Platform, FMX.Edit, FMX.ExtCtrls, FMX.Ani;
 
 type
   TfrmMain = class(TForm)
@@ -25,6 +25,7 @@ type
     btParseToSql: TSpeedButton;
     chkInlineVar: TCheckBox;
     btCleanAll: TSpeedButton;
+    Spliter: TSplitter;
     procedure btParseClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure edVarNameChange(Sender: TObject);
@@ -36,7 +37,7 @@ type
       varName: string;
 
     procedure FormatTextSqlToDelphi;
-    procedure FormatTextDelphitoSql;
+    procedure FormatTextDelphiToSql;
     procedure CopyToClipBoard(Text: string);
   public
     { Public declarations }
@@ -62,7 +63,7 @@ end;
 
 procedure TfrmMain.btParseToSqlClick(Sender: TObject);
 begin
-  FormatTextDelphitoSql;
+  FormatTextDelphiToSql;
 end;
 
 procedure TfrmMain.edVarNameChange(Sender: TObject);
@@ -70,7 +71,7 @@ begin
   varName := edVarName.Text.Trim;
 end;
 
-procedure TfrmMain.FormatTextDelphitoSql;
+procedure TfrmMain.FormatTextDelphiToSql;
 begin
   meSQLQueryText.Lines.Clear;
 
@@ -101,9 +102,13 @@ begin
   begin
     var line := meSQLQueryText.Lines.Strings[i];
     line := line.Replace(#39, #39#39, [rfReplaceAll]);
+
+    if line.Trim.IsEmpty then
+      Continue;
+
     line := #39 + line + #32#39#59;
 
-    if i = 0 then
+    if meDelphiText.Lines.Count = 0 then
     begin
       line := varName + ' := ' + line;
 
@@ -123,6 +128,8 @@ procedure TfrmMain.FormShow(Sender: TObject);
 begin
   meSQLQueryText.SetFocus;
   varName := edVarName.Text;
+
+
 end;
 
 procedure TfrmMain.btCleanAllClick(Sender: TObject);
