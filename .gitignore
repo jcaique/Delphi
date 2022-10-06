@@ -1,3 +1,5 @@
+*.rar
+*.pdf
 *debug1
 *.1p1
 *.dcp
@@ -24,3 +26,5 @@
 **/.svn
 **/branches
 **/AppDelivery
+**/Semana Mobile 99Coders - App Delivery
+**/Delphi Icons
