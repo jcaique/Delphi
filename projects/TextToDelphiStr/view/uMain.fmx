@@ -61,7 +61,7 @@ object frmMain: TfrmMain
       Viewport.Height = 250.000000000000000000
     end
     object lbLinhaSQL: TLabel
-      Align = Scale
+      Anchors = []
       AutoSize = True
       ControlType = Platform
       StyledSettings = [Family, Style, FontColor]
@@ -203,7 +203,7 @@ object frmMain: TfrmMain
       OnClick = btCleanAllClick
     end
     object lbLinhaDelphiCode: TLabel
-      Align = Scale
+      Anchors = []
       AutoSize = True
       ControlType = Platform
       StyledSettings = [Family, Style, FontColor]
