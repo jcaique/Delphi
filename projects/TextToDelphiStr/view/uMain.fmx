@@ -56,8 +56,24 @@ object frmMain: TfrmMain
       Size.PlatformDefault = False
       StyleLookup = 'meRawTextStyle1'
       TabOrder = 1
+      OnPaint = meSQLQueryTextPaint
       Viewport.Width = 721.000000000000000000
       Viewport.Height = 250.000000000000000000
+    end
+    object lbLinhaSQL: TLabel
+      Align = Scale
+      AutoSize = True
+      ControlType = Platform
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 336.000000000000000000
+      Position.Y = 273.000000000000000000
+      Size.Width = 64.000000000000000000
+      Size.Height = 14.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 10.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Linhas'
+      TabOrder = 2
     end
   end
   object pnFormatedText: TPanel
@@ -99,6 +115,7 @@ object frmMain: TfrmMain
       Size.PlatformDefault = False
       StyleLookup = 'meFormatedTextStyle1'
       TabOrder = 1
+      OnPaint = meDelphiTextPaint
       Viewport.Width = 721.000000000000000000
       Viewport.Height = 286.000000000000000000
     end
@@ -126,7 +143,7 @@ object frmMain: TfrmMain
     object edVarName: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       StyleLookup = 'edVarNameStyle1'
-      TabOrder = 2
+      TabOrder = 3
       Text = 'strSQL'
       TextSettings.FontColor = claAliceblue
       Position.X = 250.000000000000000000
@@ -164,7 +181,7 @@ object frmMain: TfrmMain
     object chkInlineVar: TCheckBox
       Position.X = 504.000000000000000000
       Position.Y = 8.000000000000000000
-      TabOrder = 4
+      TabOrder = 5
       Text = 'Declare inline var'
     end
     object btCleanAll: TSpeedButton
@@ -184,6 +201,21 @@ object frmMain: TfrmMain
       ShowHint = True
       StyleLookup = 'SpeedButton1Style1'
       OnClick = btCleanAllClick
+    end
+    object lbLinhaDelphiCode: TLabel
+      Align = Scale
+      AutoSize = True
+      ControlType = Platform
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 343.000000000000000000
+      Position.Y = 310.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 14.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 10.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Linhas'
+      TabOrder = 2
     end
   end
   object styleApp: TStyleBook

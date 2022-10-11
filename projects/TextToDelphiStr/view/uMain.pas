@@ -26,11 +26,16 @@ type
     chkInlineVar: TCheckBox;
     btCleanAll: TSpeedButton;
     Spliter: TSplitter;
+    lbLinhaSQL: TLabel;
+    lbLinhaDelphiCode: TLabel;
     procedure btParseClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure edVarNameChange(Sender: TObject);
     procedure btCleanAllClick(Sender: TObject);
     procedure btParseToSqlClick(Sender: TObject);
+    procedure meSQLQueryTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
+    procedure meDelphiTextPaint(Sender: TObject; Canvas: TCanvas;
+      const ARect: TRectF);
   private
     { Private declarations }
     var
@@ -39,6 +44,7 @@ type
     procedure FormatTextSqlToDelphi;
     procedure FormatTextDelphiToSql;
     procedure CopyToClipBoard(Text: string);
+    function LineCount(AText: TStrings): Integer;
   public
     { Public declarations }
   end;
@@ -128,8 +134,6 @@ procedure TfrmMain.FormShow(Sender: TObject);
 begin
   meSQLQueryText.SetFocus;
   varName := edVarName.Text;
-
-
 end;
 
 procedure TfrmMain.btCleanAllClick(Sender: TObject);
@@ -146,6 +150,24 @@ begin
   var clip: IFMXClipboardService;
   if TPlatformServices.Current.SupportsPlatformService(IFMXClipboardService, clip) then
     clip.SetClipboard(TValue.FromVariant(Text));
+end;
+
+procedure TfrmMain.meSQLQueryTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
+begin
+  lbLinhaSQL.Text := LineCount((Sender as TMemo).Lines).ToString + ' Linhas';
+end;
+
+procedure TfrmMain.meDelphiTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
+begin
+  lbLinhaDelphiCode.Text := LineCount((Sender as TMemo).Lines).ToString + ' Linhas';
+end;
+
+function TfrmMain.LineCount(AText: TStrings): Integer;
+begin
+  Result := AText.Count;
+
+  if AText.Text.Trim.IsEmpty then
+    Result := 0;
 end;
 
 end.
