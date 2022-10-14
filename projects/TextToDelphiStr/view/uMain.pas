@@ -12,39 +12,40 @@ uses
 
 type
   TfrmMain = class(TForm)
+    btCleanAll: TSpeedButton;
     btParse: TSpeedButton;
+    btParseToSql: TSpeedButton;
+    chkInlineVar: TCheckBox;
+    chkTrimLeft: TCheckBox;
     edVarName: TEdit;
     imgGeneralList: TImageList;
+    lbLinhaDelphiCode: TLabel;
+    lbLinhaSQL: TLabel;
     lbTitle1: TLabel;
     lbTitle2: TLabel;
     meDelphiText: TMemo;
     meSQLQueryText: TMemo;
     pnFormatedText: TPanel;
     pnRawText: TPanel;
-    styleApp: TStyleBook;
-    btParseToSql: TSpeedButton;
-    chkInlineVar: TCheckBox;
-    btCleanAll: TSpeedButton;
     Spliter: TSplitter;
-    lbLinhaSQL: TLabel;
-    lbLinhaDelphiCode: TLabel;
-    procedure btParseClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure edVarNameChange(Sender: TObject);
+    styleApp: TStyleBook;
+    FloatAnimation1: TFloatAnimation;
     procedure btCleanAllClick(Sender: TObject);
+    procedure btParseClick(Sender: TObject);
     procedure btParseToSqlClick(Sender: TObject);
+    procedure edVarNameChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure meDelphiTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
     procedure meSQLQueryTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
-    procedure meDelphiTextPaint(Sender: TObject; Canvas: TCanvas;
-      const ARect: TRectF);
   private
     { Private declarations }
     var
       varName: string;
 
-    procedure FormatTextSqlToDelphi;
-    procedure FormatTextDelphiToSql;
-    procedure CopyToClipBoard(Text: string);
     function LineCount(AText: TStrings): Integer;
+    procedure CopyToClipBoard(Text: string);
+    procedure FormatTextDelphiToSql;
+    procedure FormatTextSqlToDelphi;
   public
     { Public declarations }
   end;
@@ -111,6 +112,9 @@ begin
 
     if line.Trim.IsEmpty then
       Continue;
+
+    if chkTrimLeft.IsChecked then
+      line := line.TrimLeft;
 
     line := #39 + line + #32#39#59;
 
