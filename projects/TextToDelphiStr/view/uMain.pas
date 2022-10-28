@@ -147,7 +147,7 @@ begin
       if not chkConcatStrings.IsChecked then
         line := varName + ' := ' + varName + ' + ' + line
       else if i = meSQLQueryText.Lines.Count - 1 then
-        line := line.Replace(CHAR_PLUS, CHAR_COMMA);
+        line[line.Length] := CHAR_COMMA;
     end;
 
     meDelphiText.Lines.Add(line);
