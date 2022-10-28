@@ -198,7 +198,7 @@ object frmMain: TfrmMain
       OnClick = btCleanAllClick
     end
     object lbLinhaDelphiCode: TLabel
-      Align = Scale
+      Anchors = []
       AutoSize = True
       StyledSettings = [Family, FontColor]
       Position.X = 287.047607421875000000
@@ -3218,14 +3218,14 @@ object frmMain: TfrmMain
     StyleLookup = 'Panel1Style1'
     TabOrder = 4
     object MultiViewOptions: TMultiView
-      MasterButton = SpeedButton1
+      MasterButton = btOptions
       Size.Width = 250.000000000000000000
       Size.Height = 633.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'MultiView1Style1'
       TabOrder = 0
       OnResized = MultiViewOptionsResized
-      object SpeedButton1: TSpeedButton
+      object btOptions: TSpeedButton
         Align = MostTop
         ClipParent = True
         StyledSettings = []
@@ -3273,7 +3273,7 @@ object frmMain: TfrmMain
           TabOrder = 6
           Text = 'Trim Left Spaces'
         end
-        object FloatAnimation2: TFloatAnimation
+        object animationRectOptions: TFloatAnimation
           AnimationType = Out
           Duration = 0.200000002980232200
           PropertyName = 'Opacity'
@@ -3290,6 +3290,15 @@ object frmMain: TfrmMain
           StyleLookup = 'chkTrimLeftStyle1'
           TabOrder = 5
           Text = 'Concatenate strings'
+        end
+        object animationRectOptions2: TFloatAnimation
+          AnimationType = Out
+          Duration = 0.500000000000000000
+          Interpolation = Exponential
+          PropertyName = 'Width'
+          StartValue = 0.000000000000000000
+          StopValue = 0.000000000000000000
+          Trigger = 'IsVisible=false'
         end
       end
     end

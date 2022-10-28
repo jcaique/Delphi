@@ -31,12 +31,13 @@ type
     FloatAnimation1: TFloatAnimation;
     pnMultiViewOptions: TPanel;
     MultiViewOptions: TMultiView;
-    SpeedButton1: TSpeedButton;
+    btOptions: TSpeedButton;
     rectOptions: TRectangle;
     chkTrimLeft: TCheckBox;
     chkInlineVar: TCheckBox;
-    FloatAnimation2: TFloatAnimation;
+    animationRectOptions: TFloatAnimation;
     chkConcatStrings: TCheckBox;
+    animationRectOptions2: TFloatAnimation;
     procedure btCleanAllClick(Sender: TObject);
     procedure btParseClick(Sender: TObject);
     procedure btParseToSqlClick(Sender: TObject);
@@ -130,9 +131,9 @@ begin
       line := line.TrimLeft;
 
     if chkConcatStrings.IsChecked then
-      line := CHAR_QUOTE + line + CHAR_SPACE+CHAR_QUOTE+CHAR_PLUS
+      line := CHAR_QUOTE + line.Trim + CHAR_SPACE+CHAR_QUOTE+CHAR_PLUS
     else
-      line := CHAR_QUOTE + line + CHAR_SPACE+CHAR_QUOTE+CHAR_COMMA;
+      line := CHAR_QUOTE + line.Trim + CHAR_SPACE+CHAR_QUOTE+CHAR_COMMA;
 
     if meDelphiText.Lines.Count = 0 then
     begin
