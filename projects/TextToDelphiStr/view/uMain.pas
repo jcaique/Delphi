@@ -46,6 +46,7 @@ type
     procedure meDelphiTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
     procedure meSQLQueryTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
     procedure MultiViewOptionsResized(Sender: TObject);
+    procedure FormResize(Sender: TObject);
   private
     { Private declarations }
     var
@@ -200,6 +201,11 @@ procedure TfrmMain.MultiViewOptionsResized(Sender: TObject);
 begin
   pnMultiViewOptions.width := MultiViewOptions.Width;
   rectOptions.Visible := MultiViewOptions.IsShowed;
+end;
+
+procedure TfrmMain.FormResize(Sender: TObject);
+begin
+  pnRawText.Height := Trunc(Self.Height / 2) - 43;
 end;
 
 end.

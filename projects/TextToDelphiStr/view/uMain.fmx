@@ -3,7 +3,7 @@ object frmMain: TfrmMain
   Top = 0
   Caption = 'Stringer'
   ClientHeight = 633
-  ClientWidth = 735
+  ClientWidth = 766
   Position = ScreenCenter
   Quality = HighPerformance
   SystemStatusBar.BackgroundColor = claSlategray
@@ -11,12 +11,13 @@ object frmMain: TfrmMain
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnResize = FormResize
   OnShow = FormShow
   DesignerMasterStyle = 0
   object pnRawText: TPanel
     Align = Top
     Position.X = 50.000000000000000000
-    Size.Width = 685.000000000000000000
+    Size.Width = 716.000000000000000000
     Size.Height = 297.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'pnRawTextStyle1'
@@ -30,7 +31,7 @@ object frmMain: TfrmMain
       Margins.Bottom = 5.000000000000000000
       Position.X = 5.000000000000000000
       Position.Y = 5.000000000000000000
-      Size.Width = 675.000000000000000000
+      Size.Width = 706.000000000000000000
       Size.Height = 28.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'lbTitulo1Style1'
@@ -52,20 +53,20 @@ object frmMain: TfrmMain
       Padding.Top = 10.000000000000000000
       Padding.Right = 10.000000000000000000
       Padding.Bottom = 10.000000000000000000
-      Size.Width = 675.000000000000000000
+      Size.Width = 706.000000000000000000
       Size.Height = 254.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'meRawTextStyle1'
       TabOrder = 1
       OnPaint = meSQLQueryTextPaint
-      Viewport.Width = 671.000000000000000000
+      Viewport.Width = 702.000000000000000000
       Viewport.Height = 250.000000000000000000
     end
     object lbLinhaSQL: TLabel
       Anchors = []
       AutoSize = True
       StyledSettings = [Family, FontColor]
-      Position.X = 282.965972900390600000
+      Position.X = 298.487060546875000000
       Position.Y = 277.000000000000000000
       Size.Width = 120.000000000000000000
       Size.Height = 14.000000000000000000
@@ -79,7 +80,7 @@ object frmMain: TfrmMain
   end
   object pnFormatedText: TPanel
     Align = Client
-    Size.Width = 685.000000000000000000
+    Size.Width = 716.000000000000000000
     Size.Height = 333.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'pnFormatedTextStyle1'
@@ -93,7 +94,7 @@ object frmMain: TfrmMain
       Margins.Bottom = 5.000000000000000000
       Position.X = 5.000000000000000000
       Position.Y = 5.000000000000000000
-      Size.Width = 675.000000000000000000
+      Size.Width = 706.000000000000000000
       Size.Height = 28.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'lbTitulo2Style1'
@@ -111,13 +112,13 @@ object frmMain: TfrmMain
       Margins.Left = 5.000000000000000000
       Margins.Right = 5.000000000000000000
       Margins.Bottom = 5.000000000000000000
-      Size.Width = 675.000000000000000000
+      Size.Width = 706.000000000000000000
       Size.Height = 290.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'meFormatedTextStyle1'
       TabOrder = 1
       OnPaint = meDelphiTextPaint
-      Viewport.Width = 671.000000000000000000
+      Viewport.Width = 702.000000000000000000
       Viewport.Height = 286.000000000000000000
     end
     object btParse: TSpeedButton
@@ -201,7 +202,7 @@ object frmMain: TfrmMain
       Anchors = []
       AutoSize = True
       StyledSettings = [Family, FontColor]
-      Position.X = 287.047607421875000000
+      Position.X = 302.595031738281300000
       Position.Y = 314.000000000000000000
       Size.Width = 113.000000000000000000
       Size.Height = 14.000000000000000000
@@ -3205,7 +3206,7 @@ object frmMain: TfrmMain
     MinSize = 3.000000000000000000
     Position.X = 50.000000000000000000
     Position.Y = 297.000000000000000000
-    Size.Width = 685.000000000000000000
+    Size.Width = 716.000000000000000000
     Size.Height = 3.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'SpliterStyle1'
