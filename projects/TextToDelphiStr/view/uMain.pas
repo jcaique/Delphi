@@ -8,15 +8,14 @@ uses
   Datasnap.Provider, FMX.StdCtrls, IPPeerClient, IPPeerServer,
   System.Tether.Manager, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
   FMX.Controls.Presentation, System.ImageList, FMX.ImgList, FMX.Clipboard.Win,
-  FMX.Clipboard, System.Rtti, FMX.Platform, FMX.Edit, FMX.ExtCtrls, FMX.Ani;
+  FMX.Clipboard, System.Rtti, FMX.Platform, FMX.Edit, FMX.ExtCtrls, FMX.Ani,
+  FMX.MultiView, FMX.Objects;
 
 type
   TfrmMain = class(TForm)
     btCleanAll: TSpeedButton;
     btParse: TSpeedButton;
     btParseToSql: TSpeedButton;
-    chkInlineVar: TCheckBox;
-    chkTrimLeft: TCheckBox;
     edVarName: TEdit;
     imgGeneralList: TImageList;
     lbLinhaDelphiCode: TLabel;
@@ -30,6 +29,14 @@ type
     Spliter: TSplitter;
     styleApp: TStyleBook;
     FloatAnimation1: TFloatAnimation;
+    pnMultiViewOptions: TPanel;
+    MultiViewOptions: TMultiView;
+    SpeedButton1: TSpeedButton;
+    rectOptions: TRectangle;
+    chkTrimLeft: TCheckBox;
+    chkInlineVar: TCheckBox;
+    FloatAnimation2: TFloatAnimation;
+    chkConcatStrings: TCheckBox;
     procedure btCleanAllClick(Sender: TObject);
     procedure btParseClick(Sender: TObject);
     procedure btParseToSqlClick(Sender: TObject);
@@ -37,6 +44,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure meDelphiTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
     procedure meSQLQueryTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
+    procedure MultiViewOptionsResized(Sender: TObject);
   private
     { Private declarations }
     var
@@ -103,6 +111,11 @@ end;
 
 procedure TfrmMain.FormatTextSqlToDelphi;
 begin
+  const CHAR_QUOTE = #39;
+  const CHAR_SPACE = #32;
+  const CHAR_COMMA = #59;
+  const CHAR_PLUS =  #43;
+
   meDelphiText.Lines.Clear;
 
   for var i := 0 to meSQLQueryText.Lines.Count - 1 do
@@ -116,7 +129,10 @@ begin
     if chkTrimLeft.IsChecked then
       line := line.TrimLeft;
 
-    line := #39 + line + #32#39#59;
+    if chkConcatStrings.IsChecked then
+      line := CHAR_QUOTE + line + CHAR_SPACE+CHAR_QUOTE+CHAR_PLUS
+    else
+      line := CHAR_QUOTE + line + CHAR_SPACE+CHAR_QUOTE+CHAR_COMMA;
 
     if meDelphiText.Lines.Count = 0 then
     begin
@@ -126,7 +142,12 @@ begin
         line := 'var ' + line;
     end
     else
-      line := varName + ' := ' + varName + ' + ' + line;
+    begin
+      if not chkConcatStrings.IsChecked then
+        line := varName + ' := ' + varName + ' + ' + line
+      else if i = meSQLQueryText.Lines.Count - 1 then
+        line := line.Replace(CHAR_PLUS, CHAR_COMMA);
+    end;
 
     meDelphiText.Lines.Add(line);
   end;
@@ -172,6 +193,12 @@ begin
 
   if AText.Text.Trim.IsEmpty then
     Result := 0;
+end;
+
+procedure TfrmMain.MultiViewOptionsResized(Sender: TObject);
+begin
+  pnMultiViewOptions.width := MultiViewOptions.Width;
+  rectOptions.Visible := MultiViewOptions.IsShowed;
 end;
 
 end.
