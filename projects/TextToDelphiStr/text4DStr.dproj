@@ -259,9 +259,9 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=Stringer;FileDescription=Stringer;FileVersion=1.0.0.12;InternalName=Stringer;LegalCopyright=Stringer;LegalTrademarks=Stringer;OriginalFilename=Stringer;ProgramID=Stringer;ProductName=Stringer;ProductVersion=1.0.0.0;Comments=Stringer</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Stringer;FileDescription=Stringer;FileVersion=1.0.0.13;InternalName=Stringer;LegalCopyright=Stringer;LegalTrademarks=Stringer;OriginalFilename=Stringer;ProgramID=Stringer;ProductName=Stringer;ProductVersion=1.0.0.0;Comments=Stringer</VerInfo_Keys>
         <Icon_MainIcon>view\images\convenient.ico</Icon_MainIcon>
-        <VerInfo_Build>12</VerInfo_Build>
+        <VerInfo_Build>13</VerInfo_Build>
         <DCC_Description>Stringer</DCC_Description>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
@@ -274,8 +274,8 @@
         </DelphiCompile>
         <DCCReference Include="view\uMain.pas">
             <Form>frmMain</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="controller\uUserOptions.pas"/>
         <RcItem Include="view\images\convenient.ico">
             <ResourceType>ICON</ResourceType>
             <ResourceId>flaticon</ResourceId>
@@ -317,25 +317,31 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
-                    <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="Win32\Debug\text4DStr.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="temp\text4DStr.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>text4DStr.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libpcre.dylib" Class="DependencyModule">
-                    <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="temp\text4DStr.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>text4DStr.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="view\images\convenient.ico" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libpcre.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

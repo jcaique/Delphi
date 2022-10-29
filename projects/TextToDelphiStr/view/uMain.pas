@@ -3,13 +3,37 @@ unit uMain;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  Datasnap.Provider, FMX.StdCtrls, IPPeerClient, IPPeerServer,
-  System.Tether.Manager, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
-  FMX.Controls.Presentation, System.ImageList, FMX.ImgList, FMX.Clipboard.Win,
-  FMX.Clipboard, System.Rtti, FMX.Platform, FMX.Edit, FMX.ExtCtrls, FMX.Ani,
-  FMX.MultiView, FMX.Objects;
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
+  System.Variants,
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  Datasnap.Provider,
+  FMX.StdCtrls,
+  IPPeerClient,
+  IPPeerServer,
+  System.Tether.Manager,
+  FMX.Memo.Types,
+  FMX.ScrollBox,
+  FMX.Memo,
+  FMX.Controls.Presentation,
+  System.ImageList,
+  FMX.ImgList,
+  FMX.Clipboard.Win,
+  FMX.Clipboard,
+  System.Rtti,
+  FMX.Platform,
+  FMX.Edit,
+  FMX.ExtCtrls,
+  FMX.Ani,
+  FMX.MultiView,
+  FMX.Objects,
+  uUserOptions;
 
 type
   TfrmMain = class(TForm)
@@ -47,11 +71,14 @@ type
     procedure meSQLQueryTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
     procedure MultiViewOptionsResized(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure chkInlineVarClick(Sender: TObject);
+    procedure chkTrimLeftClick(Sender: TObject);
+    procedure chkConcatStringsClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     var
       varName: string;
-
     function LineCount(AText: TStrings): Integer;
     procedure CopyToClipBoard(Text: string);
     procedure FormatTextDelphiToSql;
@@ -64,7 +91,6 @@ var
   frmMain: TfrmMain;
 
 implementation
-
 {$R *.fmx}
 
 procedure TfrmMain.btParseClick(Sender: TObject);
@@ -74,7 +100,6 @@ begin
     ShowMessage('Type the variable string name.');
     Exit
   end;
-
   FormatTextSqlToDelphi;
 end;
 
@@ -91,23 +116,19 @@ end;
 procedure TfrmMain.FormatTextDelphiToSql;
 begin
   meSQLQueryText.Lines.Clear;
-
   for var i := 0 to meDelphiText.Lines.Count - 1 do
   begin
     var line := meDelphiText.Lines.Strings[i];
-
     if (line.IndexOf(#39) < 0) or (line.LastIndexOf(#39) < 0) then
       Continue;
 
     // Removes the text before and after the quotes
     line := line.Remove(0, line.IndexOf(#39) + 1);
     line := line.Remove(line.LastIndexOf(#39), line.Length);
-
     line := line.Replace(#39#39, #39, [rfReplaceAll]);
 
     meSQLQueryText.Lines.Add(line);
   end;
-
   CopyToClipBoard(meSQLQueryText.Lines.Text);
 end;
 
@@ -115,8 +136,8 @@ procedure TfrmMain.FormatTextSqlToDelphi;
 begin
   const CHAR_QUOTE = #39;
   const CHAR_SPACE = #32;
-  const CHAR_COMMA = #59;
-  const CHAR_PLUS =  #43;
+  const CHAR_SEMICOLON = #59;
+  const CHAR_PLUS = #43;
 
   meDelphiText.Lines.Clear;
 
@@ -132,14 +153,13 @@ begin
       line := line.TrimLeft;
 
     if chkConcatStrings.IsChecked then
-      line := CHAR_QUOTE + line.Trim + CHAR_SPACE+CHAR_QUOTE+CHAR_PLUS
+      line := CHAR_QUOTE + line.Trim + CHAR_SPACE + CHAR_QUOTE + CHAR_PLUS
     else
-      line := CHAR_QUOTE + line.Trim + CHAR_SPACE+CHAR_QUOTE+CHAR_COMMA;
+      line := CHAR_QUOTE + line.Trim + CHAR_SPACE + CHAR_QUOTE + CHAR_SEMICOLON;
 
     if meDelphiText.Lines.Count = 0 then
     begin
       line := varName + ' := ' + line;
-
       if chkInlineVar.IsChecked then
         line := 'var ' + line;
     end
@@ -148,19 +168,28 @@ begin
       if not chkConcatStrings.IsChecked then
         line := varName + ' := ' + varName + ' + ' + line
       else if i = meSQLQueryText.Lines.Count - 1 then
-        line[line.Length] := CHAR_COMMA;
+        line[line.Length] := CHAR_SEMICOLON;
     end;
 
     meDelphiText.Lines.Add(line);
   end;
-
   CopyToClipBoard(meDelphiText.Lines.Text);
+end;
+
+procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  TUserOptions.SaveOptions;
 end;
 
 procedure TfrmMain.FormShow(Sender: TObject);
 begin
   meSQLQueryText.SetFocus;
   varName := edVarName.Text;
+
+  TUserOptions.ReadOptions;
+  chkTrimLeft.IsChecked := UserOptions.TrimLeftSpaces;
+  chkInlineVar.IsChecked := UserOptions.DeclareInlineVar;
+  chkConcatStrings.IsChecked := UserOptions.ConcatStrings;
 end;
 
 procedure TfrmMain.btCleanAllClick(Sender: TObject);
@@ -186,7 +215,7 @@ end;
 
 procedure TfrmMain.meDelphiTextPaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
 begin
-  lbLinhaDelphiCode.Text := LineCount((Sender as TMemo).Lines).ToString + ' Linhas';
+  lbLinhaDelphiCode.Text := LineCount((Sender as TMemo).Lines).ToString + ' Linhas';
 end;
 
 function TfrmMain.LineCount(AText: TStrings): Integer;
@@ -206,6 +235,21 @@ end;
 procedure TfrmMain.FormResize(Sender: TObject);
 begin
   pnRawText.Height := Trunc(Self.Height / 2) - 43;
+end;
+
+procedure TfrmMain.chkConcatStringsClick(Sender: TObject);
+begin
+  UserOptions.ConcatStrings := not chkConcatStrings.IsChecked;
+end;
+
+procedure TfrmMain.chkInlineVarClick(Sender: TObject);
+begin
+  UserOptions.DeclareInlineVar := not chkInlineVar.IsChecked;
+end;
+
+procedure TfrmMain.chkTrimLeftClick(Sender: TObject);
+begin
+  UserOptions.TrimLeftSpaces := not chkTrimLeft.IsChecked;
 end;
 
 end.

@@ -11,6 +11,7 @@ object frmMain: TfrmMain
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   OnResize = FormResize
   OnShow = FormShow
   DesignerMasterStyle = 0
@@ -3263,6 +3264,7 @@ object frmMain: TfrmMain
           StyleLookup = 'chkInlineVarStyle1'
           TabOrder = 7
           Text = 'Declare inline var'
+          OnClick = chkInlineVarClick
         end
         object chkTrimLeft: TCheckBox
           Align = Top
@@ -3273,6 +3275,7 @@ object frmMain: TfrmMain
           StyleLookup = 'chkTrimLeftStyle1'
           TabOrder = 6
           Text = 'Trim Left Spaces'
+          OnClick = chkTrimLeftClick
         end
         object animationRectOptions: TFloatAnimation
           AnimationType = Out
@@ -3291,6 +3294,7 @@ object frmMain: TfrmMain
           StyleLookup = 'chkTrimLeftStyle1'
           TabOrder = 5
           Text = 'Concatenate strings'
+          OnClick = chkConcatStringsClick
         end
         object animationRectOptions2: TFloatAnimation
           AnimationType = Out

@@ -3,7 +3,8 @@ program text4DStr;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  uMain in 'view\uMain.pas' {frmMain};
+  uMain in 'view\uMain.pas' {frmMain},
+  uUserOptions in 'controller\uUserOptions.pas';
 
 {$R *.res}
 
