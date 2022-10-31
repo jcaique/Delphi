@@ -14,8 +14,8 @@ type
     TrimLeftSpaces: Boolean;
     DeclareInlineVar: Boolean;
 
-    class procedure SaveOptions; static;
-    class procedure ReadOptions; static;
+    class procedure SaveUserOptions; static;
+    class procedure LoadUserOptions; static;
 
   strict private
     class procedure CreateUserOptionsIni; static;
@@ -28,9 +28,11 @@ const
 
 var
   UserOptions: TUserOptions;
-  IniUserOpt: TIniFile;
 
 implementation
+
+var
+  IniUserOpt: TIniFile;
 
 { TUserOptions }
 
@@ -42,7 +44,7 @@ begin
   IniUserOpt := TIniFile.Create(TPath.GetSharedDocumentsPath + SYS_FOLDER + SYS_USER_OPTIONS_FOLDER + SYS_USER_INI);
 end;
 
-class procedure TUserOptions.ReadOptions;
+class procedure TUserOptions.LoadUserOptions;
 begin
   CreateUserOptionsIni;
 
@@ -51,7 +53,7 @@ begin
   UserOptions.DeclareInlineVar := IniUserOpt.ReadBool('userOptions', 'DeclareInlineVar', UserOptions.DeclareInlineVar);
 end;
 
-class procedure TUserOptions.SaveOptions;
+class procedure TUserOptions.SaveUserOptions;
 begin
   IniUserOpt.WriteBool('userOptions', 'ConcatStrings', UserOptions.ConcatStrings);
   IniUserOpt.WriteBool('userOptions', 'TrimLeftSpaces', UserOptions.TrimLeftSpaces);

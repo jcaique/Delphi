@@ -178,7 +178,7 @@ end;
 
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  TUserOptions.SaveOptions;
+  TUserOptions.SaveUserOptions;
 end;
 
 procedure TfrmMain.FormShow(Sender: TObject);
@@ -186,7 +186,7 @@ begin
   meSQLQueryText.SetFocus;
   varName := edVarName.Text;
 
-  TUserOptions.ReadOptions;
+  TUserOptions.LoadUserOptions;
   chkTrimLeft.IsChecked := UserOptions.TrimLeftSpaces;
   chkInlineVar.IsChecked := UserOptions.DeclareInlineVar;
   chkConcatStrings.IsChecked := UserOptions.ConcatStrings;
