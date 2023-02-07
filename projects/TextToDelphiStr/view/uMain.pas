@@ -143,35 +143,46 @@ begin
 
   for var i := 0 to meSQLQueryText.Lines.Count - 1 do
   begin
-    var line := meSQLQueryText.Lines.Strings[i];
-    line := line.Replace(#39, #39#39, [rfReplaceAll]);
+    var LLine := meSQLQueryText.Lines.Strings[i];
 
-    if line.Trim.IsEmpty then
+    var LMeLastLine := meSQLQueryText.Lines.Count - 1;
+
+    LLine := LLine.Replace(#39, #39#39, [rfReplaceAll]);
+
+    if LLine.Trim.IsEmpty then
+    begin
+      if (i = LMeLastLine) and (chkConcatStrings.IsChecked) then
+      begin
+        var LLastLineText := meDelphiText.Lines[meDelphiText.Lines.Count -1];
+        meDelphiText.Lines[meDelphiText.Lines.Count -1] := LLastLineText.Remove(LLastLineText.Length -1) + CHAR_SEMICOLON;
+      end;
+
       Continue;
+    end;
 
     if chkTrimLeft.IsChecked then
-      line := line.TrimLeft;
+      LLine := LLine.TrimLeft;
 
     if chkConcatStrings.IsChecked then
-      line := CHAR_QUOTE + line.Trim + CHAR_SPACE + CHAR_QUOTE + CHAR_PLUS
+      LLine := CHAR_QUOTE + LLine.Trim + CHAR_SPACE + CHAR_QUOTE + CHAR_PLUS
     else
-      line := CHAR_QUOTE + line.Trim + CHAR_SPACE + CHAR_QUOTE + CHAR_SEMICOLON;
+      LLine := CHAR_QUOTE + LLine.Trim + CHAR_SPACE + CHAR_QUOTE + CHAR_SEMICOLON;
 
     if meDelphiText.Lines.Count = 0 then
     begin
-      line := varName + ' := ' + line;
+      LLine := varName + ' := ' + LLine;
       if chkInlineVar.IsChecked then
-        line := 'var ' + line;
+        LLine := 'var ' + LLine;
     end
     else
     begin
       if not chkConcatStrings.IsChecked then
-        line := varName + ' := ' + varName + ' + ' + line
+        LLine := varName + ' := ' + varName + ' + ' + LLine
       else if i = meSQLQueryText.Lines.Count - 1 then
-        line[line.Length] := CHAR_SEMICOLON;
+        LLine[LLine.Length] := CHAR_SEMICOLON;
     end;
 
-    meDelphiText.Lines.Add(line);
+    meDelphiText.Lines.Add(LLine);
   end;
   CopyToClipBoard(meDelphiText.Lines.Text);
 end;
