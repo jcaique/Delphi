@@ -8,6 +8,9 @@ uses
   FMX.StdCtrls,
   System.SysUtils;
 
+
+
+
 type
   TUserOptions = record
     ConcatStrings: Boolean;
